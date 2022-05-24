@@ -4,10 +4,9 @@
 
 struct node {
 	int val;
-	node* ancestor;
 	node* right;
 	node* left;
-	explicit node(int val) : val(val), ancestor(nullptr), right(nullptr), left(nullptr) {}
+	explicit node(int val) : val(val), right(nullptr), left(nullptr) {}
 };
 
 struct bi_tree
@@ -17,6 +16,7 @@ struct bi_tree
 	bool is_empty() const;
 	void add_node(int new_val, node *branch = nullptr);
 	static node* delete_node(int key , node * layer);
+	void clear(node* layer);
 	static void tree2d(const std::string& prefix, const node* layer, bool isLeft );
 	static void show(const node* layer);
 	static int count_one_branch(const node* layer);

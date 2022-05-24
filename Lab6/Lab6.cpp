@@ -9,7 +9,7 @@ int main()
     {
 	    std::cout<<"Add new elem to the tree:\n>>>";
 	    std::cin>>some_val;
-        if(some_val == 999) break;
+        if(some_val == 0) break;
     	new_tree.add_node(some_val); 
     }
     bi_tree::show(new_tree.root);
@@ -20,6 +20,11 @@ int main()
 	    int key;
 	    std::cout <<"Delete elem:\n>>>";
 	    std::cin >> key;
+        if(key == 999)
+        {
+	        new_tree.clear(new_tree.root);
+	        std::cout<< new_tree.is_empty();
+        }
         new_tree.delete_node(key, new_tree.root);
         new_tree.tree2d(">", new_tree.root, false);
     }

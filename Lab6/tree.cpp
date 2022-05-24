@@ -82,6 +82,20 @@ node* bi_tree::delete_node(const int key, node* layer)
 	return layer;
 }
 
+void bi_tree::clear(node* layer)
+{
+	node* temp = layer;
+	if(layer==nullptr)
+	{
+		return;
+	}
+	clear(layer->left);
+	clear(layer->right);
+	layer=nullptr;
+	delete temp;
+	root = nullptr;
+}
+
 void bi_tree::tree2d(const std::string& prefix, const node* layer, bool isLeft)
 {
 	if (layer != nullptr)
